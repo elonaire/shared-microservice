@@ -4,7 +4,7 @@ import {
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
-import { AnyFilesInterceptor, FileFieldsInterceptor, FilesInterceptor } from '@nestjs/platform-express';
+import { AnyFilesInterceptor } from '@nestjs/platform-express';
 import { FileUploadService } from './file-upload.service';
 
 export interface FileInfo {
