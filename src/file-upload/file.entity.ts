@@ -29,3 +29,18 @@ export class File extends Model<File> {
   @Column
   size: number;
 }
+
+
+export class FileDto {
+  encoding: string;
+
+  mimetype: string;
+
+  destination: string;
+
+  filename: string;
+
+  path: string;
+
+  size: number;
+}

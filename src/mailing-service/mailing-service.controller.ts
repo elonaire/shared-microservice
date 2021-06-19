@@ -1,12 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { MailBody } from './mail.entity';
 import { MailingServiceService } from './mailing-service.service';
-
-export interface MailDetails {
-    sender?: string;
-    recipient: string;
-    subject: string;
-    htmlBody: string;
-}
 
 @Controller('mailing-service')
 export class MailingServiceController {
@@ -15,7 +9,7 @@ export class MailingServiceController {
     ) {}
 
     @Post('send-mail')
-    sendEMail(@Body() mailDetails: MailDetails): Promise<any> {
+    sendEMail(@Body() mailDetails: MailBody): Promise<any> {
         return this.mailerService.sendEMail(mailDetails);
     }
 }
