@@ -1,11 +1,11 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { MailDetails } from './mailing-service.controller';
+import { MailBody } from './mail.entity';
 
 @Injectable()
 export class MailingServiceService {
   constructor(private readonly nodeMailerService: MailerService) {}
-  async sendEMail(mailDetails: MailDetails): Promise<any> {
+  async sendEMail(mailDetails: MailBody): Promise<any> {
     try {
       const { recipient, subject, htmlBody, sender } = mailDetails;
       const response = await this.nodeMailerService.sendMail({
