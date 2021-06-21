@@ -13,6 +13,10 @@ export class FileUploadService {
   ) {}
   async uploadFile(files: FileInfo[]): Promise<FileDto[]> {
     const createdFiles = [];
+    if (!files) {
+      throw new HttpException('Upload at least one file!', HttpStatus.BAD_REQUEST);
+    }
+
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       try {
